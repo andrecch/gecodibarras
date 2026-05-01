@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GenBarras - Gestion de Codigos EAN-13</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <div class="header-content">
+        <div class="logo">
+          <svg class="logo-icon" viewBox="0 0 40 40" fill="none">
+            <rect x="4" y="8" width="3" height="24" rx="1" fill="currentColor"/>
+            <rect x="9" y="8" width="2" height="24" rx="1" fill="currentColor"/>
+            <rect x="13" y="8" width="4" height="24" rx="1" fill="currentColor"/>
+            <rect x="19" y="8" width="2" height="24" rx="1" fill="currentColor"/>
+            <rect x="23" y="8" width="3" height="24" rx="1" fill="currentColor"/>
+            <rect x="28" y="8" width="2" height="24" rx="1" fill="currentColor"/>
+            <rect x="32" y="8" width="4" height="24" rx="1" fill="currentColor"/>
+            <path d="M4 36 L36 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.3"/>
+          </svg>
+          <h1 class="logo-text">GenBarras</h1>
+        </div>
+        <span class="subtitle">Gestion de Codigos EAN-13</span>
+      </div>
+    </header>
+
+    <main class="main">
+      <section class="stats-section">
+        <div class="stat-card glass">
+          <div class="stat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 7h16M4 12h16M4 17h10"/>
+            </svg>
+          </div>
+          <div class="stat-info">
+            <span class="stat-number" id="totalCodigos">0</span>
+            <span class="stat-label">Total Codigos</span>
+          </div>
+        </div>
+        <div class="stat-card glass">
+          <div class="stat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 6v6l4 2"/>
+            </svg>
+          </div>
+          <div class="stat-info">
+            <span class="stat-number" id="ultimoCodigo">-</span>
+            <span class="stat-desc" id="ultimoDescripcion">Sin registros</span>
+            <span class="stat-label">Ultimo Registro</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="actions-section">
+        <button class="btn-primary" id="btnRegistrar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 5v14M5 12h14"/>
+          </svg>
+          Registrar Producto
+        </button>
+      </section>
+
+      <section class="search-section">
+        <div class="search-container glass">
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"/>
+            <path d="M21 21l-4.35-4.35"/>
+          </svg>
+          <input type="text" id="searchInput" class="search-input" placeholder="Buscar por descripcion o codigo...">
+        </div>
+      </section>
+
+      <section class="records-section">
+        <h2 class="section-title">Registros</h2>
+        <div class="records-grid" id="recordsGrid"></div>
+        <div class="no-results" id="noResults" style="display: none;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M8 15s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01"/>
+          </svg>
+          <p>No se encontraron registros</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal glass">
+      <div class="modal-header">
+        <h2 class="modal-title">Registrar Producto</h2>
+        <button class="modal-close" id="modalClose">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 6L6 18M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="inputDescripcion">Descripcion</label>
+          <input type="text" id="inputDescripcion" class="form-input" placeholder="Nombre del producto">
+        </div>
+        <div class="form-group">
+          <label for="inputCodigo">Codigo EAN-13</label>
+          <input type="text" id="inputCodigo" class="form-input" placeholder="77027XXXXXXXX" maxlength="13">
+        </div>
+        <div class="barcode-preview">
+          <canvas id="barcodeCanvas" width="200" height="80"></canvas>
+          <span class="barcode-number" id="barcodeNumber"></span>
+        </div>
+        <div class="form-actions">
+          <button class="btn-secondary" id="btnGenerar">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M23 4v6h-6M1 20v-6h6"/>
+              <path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"/>
+            </svg>
+            Generar Codigo
+          </button>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-ghost" id="btnCancelar">Cancelar</button>
+        <button class="btn-primary" id="btnGuardar">Guardar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
