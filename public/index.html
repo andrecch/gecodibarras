@@ -56,33 +56,38 @@
       </section>
 
       <section class="actions-section">
-        <button class="btn-primary" id="btnRegistrar">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M12 5v14M5 12h14"/>
-          </svg>
-          Registrar Producto
-        </button>
-      </section>
-
-      <section class="search-section">
-        <div class="search-container glass">
-          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="11" cy="11" r="8"/>
-            <path d="M21 21l-4.35-4.35"/>
-          </svg>
-          <input type="text" id="searchInput" class="search-input" placeholder="Buscar por descripcion o codigo...">
-        </div>
-      </section>
-
-      <section class="records-section">
-        <h2 class="section-title">Registros</h2>
-        <div class="records-grid" id="recordsGrid"></div>
-        <div class="no-results" id="noResults" style="display: none;">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="10"/>
-            <path d="M8 15s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01"/>
-          </svg>
-          <p>No se encontraron registros</p>
+        <div class="actions-grid">
+          <a href="/registros" class="quick-access-card glass">
+            <div class="quick-access-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="7" height="7" rx="1"/>
+                <rect x="14" y="3" width="7" height="7" rx="1"/>
+                <rect x="3" y="14" width="7" height="7" rx="1"/>
+                <rect x="14" y="14" width="7" height="7" rx="1"/>
+              </svg>
+            </div>
+            <div class="quick-access-info">
+              <span class="quick-access-title">Ver Todos los Registros</span>
+              <span class="quick-access-desc">Buscar y gestionar productos</span>
+            </div>
+            <svg class="quick-access-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 18l6-6-6-6"/>
+            </svg>
+          </a>
+          <button class="quick-access-card glass" id="btnRegistrar">
+            <div class="quick-access-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 5v14M5 12h14"/>
+              </svg>
+            </div>
+            <div class="quick-access-info">
+              <span class="quick-access-title">Registrar Producto</span>
+              <span class="quick-access-desc">Agregar un nuevo codigo EAN-13</span>
+            </div>
+            <svg class="quick-access-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 18l6-6-6-6"/>
+            </svg>
+          </button>
         </div>
       </section>
     </main>

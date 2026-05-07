@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 const app = express();
-const PORT = 3000;
+const PORT = 3001;
 const DB_FILE = path.join(__dirname, 'surtitodo.json');
 
 function readDB() {
@@ -67,6 +67,10 @@ app.post('/registrar', (req, res) => {
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
+app.get('/registros', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'registros.html'));
 });
 
 app.listen(PORT, () => {

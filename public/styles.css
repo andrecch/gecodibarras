@@ -18,8 +18,8 @@
   --border-focus: rgba(30, 58, 95, 0.3);
   --success: #2d6a4f;
   --error: #9d0208;
-  --shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
-  --shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.12);
+  --shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  --shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
 body {
@@ -31,10 +31,8 @@ body {
 }
 
 .glass {
-  background: var(--surface);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid var(--border);
+  background: #ffffff;
+  border: 1px solid #dee2e6;
   border-radius: 16px;
 }
 
@@ -147,10 +145,112 @@ body {
   font-weight: 500;
 }
 
+.quick-access-section {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 28px;
+}
+
+.quick-access-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 24px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+  background: #ffffff;
+  border: 1px solid #dee2e6;
+  border-radius: 16px;
+  cursor: pointer;
+  font-family: inherit;
+  text-align: left;
+}
+
+.quick-access-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
+.quick-access-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+.quick-access-icon svg {
+  width: 24px;
+  height: 24px;
+  color: white;
+}
+
+.quick-access-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.quick-access-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.quick-access-desc {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.quick-access-arrow {
+  width: 20px;
+  height: 20px;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.back-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.back-link:hover {
+  color: var(--primary);
+}
+
+.back-link svg {
+  width: 18px;
+  height: 18px;
+}
+
+.header-divider {
+  width: 1px;
+  height: 24px;
+  background: #dee2e6;
+}
+
 .actions-section {
   display: flex;
   justify-content: center;
   margin-bottom: 28px;
+}
+
+.actions-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  max-width: 880px;
+  width: 100%;
 }
 
 .btn-primary {
@@ -188,14 +288,19 @@ body {
   align-items: center;
   gap: 8px;
   padding: 12px 24px;
-  background: var(--surface);
+  background: #f8f9fa;
   color: var(--primary);
-  border: 1px solid var(--border);
+  border: 1px solid #dee2e6;
   border-radius: 12px;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background: #e9ecef;
+  border-color: var(--accent);
 }
 
 .btn-secondary:hover {
@@ -327,7 +432,7 @@ body {
   align-items: center;
   justify-content: center;
   background: transparent;
-  border: 1px solid var(--border);
+  border: 1px solid #dee2e6;
   border-radius: 6px;
   cursor: pointer;
   color: var(--accent);
@@ -336,7 +441,7 @@ body {
 }
 
 .btn-copy:hover {
-  background: var(--surface-hover);
+  background: #e9ecef;
   color: var(--primary);
   border-color: var(--primary);
 }
@@ -406,8 +511,6 @@ body {
   max-width: 440px;
   max-height: 90vh;
   overflow-y: auto;
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
   transform: translateY(20px);
   transition: transform 0.3s ease;
 }
@@ -474,11 +577,11 @@ body {
 .form-input {
   width: 100%;
   padding: 14px 16px;
-  border: 1px solid var(--border);
+  border: 1px solid #dee2e6;
   border-radius: 10px;
   font-size: 15px;
   color: var(--text-primary);
-  background: rgba(255, 255, 255, 0.5);
+  background: #f8f9fa;
   transition: all 0.2s ease;
   outline: none;
 }
@@ -550,6 +653,10 @@ body {
 
   .stat-number {
     font-size: 26px;
+  }
+
+  .actions-grid {
+    grid-template-columns: 1fr;
   }
 
   .records-grid {
